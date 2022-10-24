@@ -16,15 +16,19 @@ var salutoBtn = document.getElementById('salutoBtn');
 var saluto = document.getElementById('saluto');
 var ora = dataIntera.getHours();
 
-generaSaluto = () => {
-    if (ora <= 5) {
-        saluto.innerHTML = 'Buonanotte, Utente.';
+
+messaggio = () => {
+    const nome = document.getElementById('textInput').value;
+    if (nome.length == 0) {
+        alert( "Non hai messo nessun nome!");
+    } else if (ora <= 5) {
+        saluto.innerHTML = `Buonanotte, ${nome}.`;
     } else if (ora <= 13) {
-        saluto.innerHTML = 'Buongiorno, Utente.';
+        saluto.innerHTML = `Buongiorno, ${nome}.`;
     } else if (ora <= 22) {
-        saluto.innerHTML = 'Buonasera, Utente.';
+        saluto.innerHTML = `Buonasera, ${nome}.`;
     } else {
-        saluto.innerHTML = 'Buonanotte, Utente.';
+        saluto.innerHTML = `Buonanotte, ${nome}.`;
     }
 }
 
@@ -34,4 +38,4 @@ dataGiorno.innerHTML += giorno;
 dataMese.innerHTML += meseStringa;
 dataOggi.innerHTML = `Oggi è il ${giorno}-${mese}-${anno}`;
 /* Bottone saluto */
-salutoBtn.addEventListener('click', generaSaluto);
+salutoBtn.addEventListener('click', messaggio);
